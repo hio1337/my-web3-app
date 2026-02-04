@@ -17,30 +17,30 @@ export default function Wallet() {
     : "—";
 
   return (
-    <>
-      <div className="">
-        <div className="">
+    <div className="relative min-h-screen overflow-hidden">
+      <div>
+        <div>
           <ReadContract />
         </div>
-        <div className="mt-2 ml-2">
+        <div className="m-2">
           <ConnectKitButton />
         </div>
         {isConnected && (
-          <div className="bg-white w-24 h-10 mt-2 ml-2 rounded-xl flex items-center justify-center">
+          <div className="flex items-center justify-center bg-white w-24 h-10 mt-2 ml-2 rounded-xl">
             <p className="text-[#414451] font-medium text-1xl">
               {formattedBalance} ETH
             </p>
           </div>
         )}
       </div>
-      <div className="flex min-h-screen items-center justify-center space-x-5">
-        <div className="min-h-screen flex items-center justify-center">
+      <div className="flex absolute top-1/2 left-1/2 -translate-1/2 items-center space-x-5">
+        <div className="flex items-center">
           <SendTransaction />
         </div>
         <div>
           <WriteToContract />
         </div>
       </div>
-    </>
+    </div>
   );
 }

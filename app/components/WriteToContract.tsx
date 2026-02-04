@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 
 import {
   type BaseError,
@@ -40,7 +40,7 @@ export default function WriteToContract() {
           args: [trimmed as `0x${string}`],
         });
       } else {
-        alert("Некорректный адрес кошелька");
+        alert("Incorrect wallet address");
         return;
       }
     }
@@ -78,10 +78,10 @@ export default function WriteToContract() {
             {isPending
               ? "Sign In Wallet..."
               : isConfirming
-              ? "Waiting For Confirmation..."
-              : isConfirmed
-              ? "Changes Are Saved"
-              : "Confirm Changes"}
+                ? "Waiting For Confirmation..."
+                : isConfirmed
+                  ? "Changes Are Saved"
+                  : "Confirm Changes"}
           </button>
         </div>
       </form>
@@ -99,12 +99,10 @@ export default function WriteToContract() {
           </a>
         </div>
       )}
-      
+
       {error && (
         <div className="mt-4 p-3 bg-red-100 text-red-800 rounded-xl text-center w-70 h-30">
-          {(error as BaseError).shortMessage ||
-            error.message ||
-            "Error"}
+          {(error as BaseError).shortMessage || error.message || "Error"}
         </div>
       )}
     </div>

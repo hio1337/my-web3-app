@@ -49,7 +49,7 @@ export default function WriteToContract() {
   }
 
   return (
-    <div>
+    <div className="relative">
       <form onSubmit={submit} className="space-y-6">
         <div>
           <input
@@ -76,9 +76,9 @@ export default function WriteToContract() {
             className="w-full py-5 px-8 bg-linear-to-l from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-xl rounded-xl shadow-2xl transition-all transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
           >
             {isPending
-              ? "Sign In Wallet..."
+              ? "Sign In Wallet"
               : isConfirming
-                ? "Waiting For Confirmation..."
+                ? "Waiting..."
                 : isConfirmed
                   ? "Changes Are Saved"
                   : "Confirm Changes"}
@@ -86,25 +86,28 @@ export default function WriteToContract() {
         </div>
       </form>
 
-      {hash && (
-        <div className="mt-4 text-sm text-center break-all">
-          Tx hash:{" "}
-          <a
-            href={`https://sepolia.etherscan.io/tx/${hash}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 underline hover:text-blue-800"
-          >
-            {hash.slice(0, 10)}...{hash.slice(-6)}
-          </a>
-        </div>
-      )}
+      <div className="absolute left-1/2 -translate-x-1/2 w-full">
+        {hash && (
+          <div className="mt-4 text-sm text-center text-white/90 break-all hover:underline">
+            Tx hash:{" "}
+            <a
+              href={`https://sepolia.etherscan.io/tx/${hash}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {hash.slice(0, 10)}...{hash.slice(-6)}
+            </a>
+          </div>
+        )}
+      </div>
 
-      {error && (
-        <div className="mt-4 p-3 bg-red-100 text-red-800 rounded-xl text-center w-70 h-30">
-          {(error as BaseError).shortMessage || error.message || "Error"}
-        </div>
-      )}
+      <div className="absolute left-1/2 -translate-x-1/2 w-full">
+        {error && (
+          <div className="mt-4 p-3 bg-red-100 text-red-800 rounded-xl text-center w-full">
+            {(error as BaseError).shortMessage || error.message || "Error"}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

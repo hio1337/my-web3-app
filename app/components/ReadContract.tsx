@@ -26,8 +26,8 @@ export default function ReadContract() {
 
   if (isPending)
     return (
-      <div className="bg-white w-55 h-10 m-2 rounded-xl text-[#414451] font-medium text-center">
-        Loading...
+      <div className="flex items-center justify-center bg-white w-55 h-10 m-2 rounded-xl">
+        <h2 className="text-xl text-[#414451] font-medium">Loading...</h2>
       </div>
     );
 
@@ -41,7 +41,7 @@ export default function ReadContract() {
 
   return (
     <>
-      <div className="bg-white w-55 h-20 m-2 rounded-xl text-[#414451] font-medium">
+      <div className="bg-white w-55 h-20 m-2 rounded-xl">
         <h2 className="text-xl text-center text-[#414451] font-medium">
           Data from Primitives
         </h2>

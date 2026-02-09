@@ -74,7 +74,7 @@ export default function Wallet() {
             </div>
 
             <div className="text-sm opacity-75">
-              © {new Date().getFullYear()} Built with ❤️
+               {new Date().getFullYear()} Built with love
             </div>
           </div>
         </div>

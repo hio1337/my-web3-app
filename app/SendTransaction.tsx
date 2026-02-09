@@ -57,7 +57,7 @@ export function SendTransaction() {
 
         {hash && (
           <div className="bg-white/10 backdrop-blur rounded-xl p-4 text-center">
-            <p className="text-white/80 text-sm mb-1">Transaction sent!</p>
+            <p className="text-white/80 text-sm mb-1">Transaction sent</p>
             <p className="text-blue-300 font-mono text-xs break-all">{hash}</p>
             {isSuccess && <p className="text-green-400 mt-2">Confirmed</p>}
           </div>
